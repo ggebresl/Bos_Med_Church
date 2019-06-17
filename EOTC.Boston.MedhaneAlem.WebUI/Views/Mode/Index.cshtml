@@ -1,0 +1,33 @@
+﻿@model EOTC.Boston.MedhaneAlem.Common.Common.Mediatype
+    <br />
+    <br />
+@{
+    ViewBag.Title = "Select Audio or Video";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    <p>
+    @using(Html.BeginForm("Play","Mode",FormMethod.Post))
+    { 
+        <center>
+        <h2>Select Audio or Video</h2>
+        @Html.DropDownList("ServiceTypes", new List<SelectListItem>
+        {
+            new SelectListItem {Text = "Audio", Value = "1"},
+            new SelectListItem {Text = "Kidase", Value = "2"},
+            new SelectListItem {Text = "Kebero", Value = "3"},
+            new SelectListItem {Text = "Mezmur", Value = "4"},
+            new SelectListItem {Text = "Sibket", Value = "5"},
+            new SelectListItem {Text = "Wereb", Value = "6"},
+            new SelectListItem {Text = "Zmare", Value = "7"},
+            new SelectListItem {Text = "Akuakuam", Value = "8"},
+            new SelectListItem {Text = "Mewaset", Value = "9"},
+            new SelectListItem {Text = "Video", Value = "10"}
+            
+            
+
+        }, "Select ServiceType")
+            <input type="submit" value="Play" />
+        </center>
+    }
+        </p>
+  }
+   

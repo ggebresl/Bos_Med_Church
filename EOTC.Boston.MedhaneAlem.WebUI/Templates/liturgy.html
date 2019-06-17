@@ -1,0 +1,49 @@
+﻿{{error}}
+<div>
+     <center><h3>ከዚህ በታች ያሉት ዜማዎች ለሙከራ የቀረቡ ናቸው</h3></center>
+    <center><h3>Please select from the following audio lists and then click on the button:</h3></center>
+</div>
+<div ng-controller="liturgyController">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="background-color:skyblue">
+                <br />   
+                <center>
+                        <select ng-model="selectedService" ng-options="service for service in services" ng-init="selectedService='Kidase'"></select>
+                        <input type="button" class="btn btn-primary" ng-click="playServiceType(selectedService)" value="{{selectedService}}" />
+                 </center>         
+                <br />
+                <br />
+                <center>
+                    <input type="checkbox" ng-model="hideAudio" /> Hide Audio
+                </center>          
+                <br />
+                <br />
+                <table border="2" width="100%" height="70%" valign="top">
+                    <tbody>
+                        <th>Audio:</th>
+                       <th>Name:</th>
+                    <tbody>
+                        <tr ng-repeat="audio in audios">
+                            <td>
+                                <audio controls preload="none">
+                                    <source src={{audio}} type="audio/mp3" />
+                                </audio>  
+                            </td>
+                            <td ng-hide="hideAudio">{{audio}}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                <br />
+                <br />
+                <p align="right">
+                    <button class="btn btn-primary" ng-click="reloadData2()">Clear Page</button>
+                </p>
+                <!--<iframe src="https://www.youtube.com/embed/OdKTxBpV81U" height="300" width="100%" allowfullscreen="" frameborder="0"></iframe>-->
+                <iframe src="https://www.youtube.com/embed/hPC2H1YTbhY" height="700" width="100%" allowfullscreen="" frameborder="0"></iframe>
+          </div>
+        </div>
+    </div>     
+</div>
+

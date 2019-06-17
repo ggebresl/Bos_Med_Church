@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EOTCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Zip" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CellPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="HomePhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="MemberCreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MemberUpdateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_members_Role" FromRole="Member" ToRole="Role" />
+    <NavigationProperty Name="UserLogins" Relationship="Self.FK_UserLogin_members" FromRole="Member" ToRole="UserLogin" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Members" Relationship="Self.FK_members_Role" FromRole="Role" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_UserLogin_members" FromRole="UserLogin" ToRole="Member" />
+  </EntityType>
+  <Association Name="FK_members_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Member" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogin_members">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="UserLogin">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EFDBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="UserLogins" EntityType="Self.UserLogin" />
+    <AssociationSet Name="FK_members_Role" Association="Self.FK_members_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Member" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogin_members" Association="Self.FK_UserLogin_members">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="UserLogin" EntitySet="UserLogins" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

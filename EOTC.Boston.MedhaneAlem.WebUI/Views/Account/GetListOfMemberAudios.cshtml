@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EOTC.Boston.MedhaneAlem.Common.Common.AudioFile>
+
+@{
+    ViewBag.Title = "Get List Of Video";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}   
+<hr />
+<div>
+    @Html.ActionLink("GoBack to Audio/Video Selection", "Index", "Mode")
+</div>  
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            <div>List of Audio Files</div>
+        </div>
+        <div class="panel-body">
+
+            <table border="2" width="100%" height="70%" valign="top">
+                @*<table class="table table-bordered">*@
+                <tr>
+                    <th>Click on each Audio </th>
+                    <th>Audio File Name</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+
+                    string[] fileParts = item.FileName.Split('\\');
+                    int length = fileParts.Length;
+                    <tr>
+                        <td>
+                            <audio controls="controls">
+                                <source src="@Url.Content("~/" + fileParts[length - 2] + '/' + fileParts[length - 1])" type="audio/mp3">
+                            </audio>
+                        </td>
+                        <td class="text-left">@fileParts[length - 1]</td>
+                    </tr>
+                }
+            </table>
+        </div>
+</div>
+
+

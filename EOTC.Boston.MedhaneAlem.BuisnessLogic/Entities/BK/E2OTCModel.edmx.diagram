@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="abf921818e7f4a069301b637d3c8e5ce" Name="Diagram1">
+        <EntityTypeShape EntityType="MedhaneAlemModel.Member" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedhaneAlemModel.PasswordChange" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedhaneAlemModel.Payment" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedhaneAlemModel.Role" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedhaneAlemModel.UserLogin" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="MedhaneAlemModel.FK__Payment__Payment__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="MedhaneAlemModel.FK_member_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="MedhaneAlemModel.FK_UserLogin_members" ManuallyRouted="false" />
+        <AssociationConnector Association="MedhaneAlemModel.FK__PasswordC__UserI__36B12243" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

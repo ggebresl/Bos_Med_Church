@@ -1,0 +1,23 @@
+﻿@model EOTC.Boston.MedhaneAlem.Common.Common.RoleType
+<br />
+<br />
+@{
+    ViewBag.Title = "Select Audio or Video";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    <p>
+        @using (Html.BeginForm("Send", "Role", FormMethod.Post))
+        {
+            <center>
+                <h2>Select Audio or Video files to upload</h2>
+                @Html.DropDownList("RoleTypes", new List<SelectListItem>
+        {
+            new SelectListItem {Text = "Member for Audio Upload", Value = "1"},
+            new SelectListItem {Text = "Member  for Video Upload", Value = "2"},
+            new SelectListItem {Text = "Public for Audio Upload", Value = "3"}
+
+        }, "Select Role")
+                <input type="submit" value="Process" />
+            </center>
+        }
+    </p>
+}

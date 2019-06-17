@@ -1,0 +1,35 @@
+﻿@model EOTC.Boston.MedhaneAlem.WebUI.Models.Files
+
+@{
+    ViewBag.Title = "FileUploadMemberAudios";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-dfault">
+    <div class="panel-heading">
+        <h3>Upload files</h3>
+    </div>
+
+    <div class="panel-body">
+        @using (Html.BeginForm("FileUploadMemberVideos",
+                               "Account",
+                                FormMethod.Post,
+                                new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                @*<label for="file">Upload File(s):</label>*@
+                <input type="file" name="FilesToLoad" id="FilesToLoad" multiple />
+                <br />
+                <br />
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" name="submit" value="Upload Video File(s) To Member Folder(s)" />
+            </div>
+            <br />
+            <br />
+          //  @TempData["message"]
+        }
+    </div>
+</div>

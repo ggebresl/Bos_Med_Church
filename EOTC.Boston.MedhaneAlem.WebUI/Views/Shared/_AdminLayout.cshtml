@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    @*<link href="~/Css/eotc.css" rel="stylesheet" />*@
+
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @if (TempData["message"] != null)
+        {
+           <div class="alert alert-success">@TempData["message"]</div> 
+        } 
+        @{
+            var userName = HttpContext.Current.User.Identity.Name;
+            if (userName != "")
+            {
+                <br />
+                <br />        
+                @*<h4><a href="http://localhost:59816/Index.html">Home</a></h4>*@
+                <h4><a href="/index.html">Home</a></h4>
+                 
+                <span class="btn-info btn pull-right list-unstyled">
+                    @Html.ActionLink(HttpContext.Current.User.Identity.Name + "-Logout", "Logout", "Account")
+                </span>
+            }
+          }
+            @RenderBody()
+</div>
+</body>
+</html>

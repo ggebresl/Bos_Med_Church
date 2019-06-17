@@ -1,0 +1,39 @@
+﻿@model IEnumerable<EOTC.Boston.MedhaneAlem.Common.Common.VideoFile>
+
+@{
+    ViewBag.Title = "Get List Of Video";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <div class="panel panel-primary">
+        <div class="panel-heading">Get List of Files</div>
+            @*<h3>Get List of Files</h3>*@
+        <hr />
+        <br />
+        <br />
+        <div>
+            @Html.ActionLink("Back to List of Audio/Video Selection", "GetServiceTyep","Mode")
+        </div>
+        <div class="panel-body" style="max-height: 10;overflow-y: scroll;border-color:ButtonFace;shape-outside:margin-box;background-size:20px">
+            @using (Html.BeginForm("GetListOfVideos",
+                               "Member",
+                                FormMethod.Get,
+                                new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-group">
+                    @foreach (var item in Model)
+                    {
+                        <div class="text-left">@item.FileName</div>
+                    }
+                    <br />
+
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" name="submit" value="Play Video" />
+                </div>
+                <br />
+                <br />
+                @TempData["message"]
+            }
+        </div>
+    </div>

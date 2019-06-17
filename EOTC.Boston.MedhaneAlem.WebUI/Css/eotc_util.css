@@ -1,0 +1,36 @@
+﻿.header {
+    background-color: #BDBDBD
+}
+.footer{
+    background-color:#BDBDBD
+}
+.leftMenu{
+    height:500px;
+    background-color:#D8D8D8;
+    width:150px;
+}
+.mainContent{
+    height:1200px;
+    background-color:#E6E6E6;
+    width:900px;
+}
+a{
+    display:block;
+    padding:5px;
+}
+.activeState{
+    background-color:black;
+    color:white;
+}
+a:link { /* Essentially means a[href], or that the link actually goes somewhere */
+  color: blue;
+}
+a:visited {
+  color: purple;
+}
+a:hover {
+  color: green;
+}
+a:active {
+  color: red;
+}

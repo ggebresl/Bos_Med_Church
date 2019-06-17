@@ -1,0 +1,75 @@
+﻿@model IEnumerable<EOTC.Boston.MedhaneAlem.DataLayer.Member>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div>List of Zema Bet Members</div>
+    </div>
+    <div class="panel-body">
+            <table class="table table-bordered">
+                <tr>
+                    @*<th class="text-left">MemberId</th>*@
+                    <th>FirstName</th>
+                    <th class="text-left">LastName</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th>Email</th>
+                    @*<th>Fax</th>*@
+                    <th>CellPhone</th>
+                    <th>HomePhone</th>
+                    <th>RoleID</th>
+                    <th>MemberCreateDate</th>
+                    <th>MemberUpdateDate</th>
+                    <th>MemberStatus</th>
+                    <th class="text-center"><strong>Actions</strong></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    
+                    <tr>
+                        @*<td class="text-left">@item.MemberId</td>*@
+                        <td> @Html.ActionLink(item.FirstName, "Edit", new { item.MemberId })</td>
+
+                        <td class="text-left">@item.LastName</td>
+                        <td class="text-left">@item.Street</td>
+                        <td class="text-left">@item.City</td>
+                        <td class="text-left">@item.State</td>
+                        <td class="text-left">@item.Zip</td>
+                        <td class="text-left">@item.Email</td>
+                        @*<td class="text-left">@item.Fax</td>*@
+                        <td class="text-left">@item.CellPhone</td>
+                        <td class="text-left">@item.HomePhone</td>
+                        <td class="text-left">@item.RoleID</td>
+                        <td class="text-left">@item.CreateDate</td>
+                        <td class="text-left">@item.UpdateDate</td>
+                        <td class="text-left">@item.Status</td>
+                        
+                        <td class="text-center">
+                            @using (Html.BeginForm("Delete", "Admin"))
+                            {
+                                @Html.Hidden("MemberId", item.MemberId)
+
+                      <input type="submit" onclick="return confirm('Delete this record?')"
+                       class=" btn btn-danger btn-xs"
+                       value="Delete" />
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        
+       <div class="panel-footer">
+         @Html.ActionLink("Add New Member", "Create", null, 
+          new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+ 
+      
+  

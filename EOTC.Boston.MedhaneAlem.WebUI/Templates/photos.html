@@ -1,0 +1,19 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="color:black;background-color:white">
+            <div ng-controller="imagesController">
+
+                <div ng-repeat="im in images">
+                    <!--<div id="my-first-canvas" width="1024" height="682">-->
+                    <p><img src="images/2014/12/Large/{{im}}" class="img-responsive" alt="Responsive image"></p>
+                </div>               
+           </div>
+            
+            <p align="right">
+                <button class="btn btn-primary" ng-click="reloadData()">Refresh</button>
+            </p>
+        </div>
+    </div>
+</div>
+             
+

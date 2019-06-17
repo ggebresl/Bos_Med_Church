@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MedhaneAlemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Zip" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CellPhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="HomePhone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="MemberCreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MemberUpdateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="MemberStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Payment__3F466844" FromRole="Member" ToRole="Payment" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_member_Role" FromRole="Member" ToRole="Role" />
+    <NavigationProperty Name="UserLogins" Relationship="Self.FK_UserLogin_members" FromRole="Member" ToRole="UserLogin" />
+  </EntityType>
+  <EntityType Name="PasswordChange">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="PasswordChangeDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UserLogin" Relationship="Self.FK__PasswordC__UserI__36B12243" FromRole="PasswordChange" ToRole="UserLogin" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentID" Type="Int32" />
+    <Property Name="CollectedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiptNum" Type="Int32" />
+    <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CollectedDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Member" Relationship="Self.FK__Payment__Payment__3F466844" FromRole="Payment" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Members" Relationship="Self.FK_member_Role" FromRole="Role" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Member" Relationship="Self.FK_UserLogin_members" FromRole="UserLogin" ToRole="Member" />
+    <NavigationProperty Name="PasswordChanges" Relationship="Self.FK__PasswordC__UserI__36B12243" FromRole="UserLogin" ToRole="PasswordChange" />
+  </EntityType>
+  <Association Name="FK__Payment__Payment__3F466844">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="PaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Member" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogin_members">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="UserLogin">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PasswordC__UserI__36B12243">
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="0..1" />
+    <End Role="PasswordChange" Type="Self.PasswordChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserLogin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PasswordChange">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EFDBContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <EntitySet Name="PasswordChanges" EntityType="Self.PasswordChange" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="UserLogins" EntityType="Self.UserLogin" />
+    <AssociationSet Name="FK__Payment__Payment__3F466844" Association="Self.FK__Payment__Payment__3F466844">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_Role" Association="Self.FK_member_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Member" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogin_members" Association="Self.FK_UserLogin_members">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="UserLogin" EntitySet="UserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PasswordC__UserI__36B12243" Association="Self.FK__PasswordC__UserI__36B12243">
+      <End Role="UserLogin" EntitySet="UserLogins" />
+      <End Role="PasswordChange" EntitySet="PasswordChanges" />
+    </AssociationSet>
+    <FunctionImport Name="spChangedPassword" ReturnType="Collection(Int32)">
+      <Parameter Name="GUID" Mode="In" Type="Guid" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spIsPasswordChangeLinkValid" ReturnType="Collection(Int32)">
+      <Parameter Name="GUID" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="spResetPassword" ReturnType="Collection(MedhaneAlemModel.spResetPassword_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="spResetPassword_Result">
+    <Property Type="Int32" Name="ReturnCode" Nullable="false" />
+    <Property Type="Guid" Name="UniqueID" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+  </ComplexType>
+</Schema>

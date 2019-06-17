@@ -1,0 +1,11 @@
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.DataLayer\bin\Debug\EOTC.Boston.MedhaneAlem.DataLayer.dll.config
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.DataLayer\bin\Debug\EOTC.Boston.MedhaneAlem.DataLayer.dll
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.DataLayer\bin\Debug\EOTC.Boston.MedhaneAlem.DataLayer.pdb
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.DataLayer\bin\Debug\EntityFramework.dll
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.DataLayer\bin\Debug\EntityFramework.xml
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.DataLayer\obj\Debug\EOTC.Boston.MedhaneAlem.DataLayer.csproj.CoreCompileInputs.cache
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.DataLayer\obj\Debug\EOTC.Boston.MedhaneAlem.DataLayer.dll
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.DataLayer\obj\Debug\EOTC.Boston.MedhaneAlem.DataLayer.pdb
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.DataLayer\obj\Debug\EOTC.Boston.MedhaneAlem.DataLayer.csproj.CopyComplete

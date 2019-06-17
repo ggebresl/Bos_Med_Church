@@ -1,0 +1,179 @@
+﻿body{
+    width:960px;
+    margin: 1px auto;
+    background-color:#f0f0f0;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:15px;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.mainheader{
+   width:960px;
+   background-color:white;
+   height: 100px;
+   margin-left:initial;
+  
+}
+.mainpage{
+      width: 960px;
+      background-color: #E6E6E6;          
+      margin-left:initial
+    
+}
+.mainContent {
+     height: 400px;
+     background-color: #E6E6E6;   
+     width: 736px;
+     margin-left:initial;
+}
+
+
+.submitclaimentries{
+     width: 960px;
+     padding:20px 50px;
+     background-color:white;
+}
+
+.claimstatusentries{
+     width: 960px;
+     padding:40px 50px;
+     background-color:white;
+}
+ .centerImage
+ {
+     text-align:center;
+     display:block;
+ }
+
+ .homecolumns{
+     width: 960px;
+ }
+ .homewelcome{  
+    width:34em;
+    height:18em;
+    float:left;  
+    background-color:black;  
+    color:white;
+    padding:10px
+ }
+ .homekeyprotection{
+    width: 15em;
+    height:18em;
+    float:left; 
+    background-color:#ff6a00;
+    color:black;
+    padding:5px;
+    
+}
+.hometirewheelprotection {
+    width: 15em;
+    height:18em;
+    float:left; 
+    background-color:#ffd800;
+    padding:5px;
+      
+}
+.homebotomrow {
+    /*margin-bottom:50em;*/
+    width: 34em;
+    float: left;
+    padding: 40px 0;
+    background-color: white;
+}
+.keymain{
+   width: 960px;
+    background-color: white;
+}
+ .keysimgagetopcolumn {
+       width: 960px;
+       height:130px;
+       float: left;
+       background-color:#808080;
+ }
+ 
+  .keysemptycolumn
+ {
+     width: 34em;
+     float:left;
+     background-color:white;
+     
+ }
+ .keysimgagebottomcolumn
+ {
+      width: 34em;
+      float: right;
+      background-color:white;     
+ }
+
+ .submitclaimbuttons
+ {
+       width: 30em;
+       float:right;  
+       padding:40px 0;
+       background-color:white;
+
+ }
+ .keyprotection{
+    background-color: white;
+    width: 410px;
+    height:168px;
+    padding: 20px;
+    float:left;   
+    margin: 45px;
+ 
+}
+.tirewheelprotection {
+    background-color: white;
+    width: 410px;
+    height:168px;
+    padding: 20px;
+    float:left;   
+    margin: 5px;
+}
+ .sidebar {
+    width:960px;
+    background-color:#f0f0f0;
+    font-size:15px;
+    }
+ 
+     a{
+      display: block;
+      padding:5px;
+    }
+
+    hgroup {
+        width:70%;
+        float:left;
+    }
+    hgroup h1 {
+        padding-top:0;
+        line-height:1em;
+    }
+
+
+    img{
+        float: left;
+        margin: 0px 0px 5px 5px;
+        /*box-shadow: 3px 3px 5px 1px #cccccc;*/
+    }
+
+    ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+    li {
+        display: inline;
+    }
+
+    footer{
+        width:960px;
+        clear:both;
+        background-color:black;
+        color:white;
+        padding:5px 50px;
+        height:150px;
+}

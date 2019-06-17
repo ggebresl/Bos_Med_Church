@@ -1,0 +1,13 @@
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\bin\Debug\EOTC.Boston.MedhaneAlem.Common.dll
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\bin\Debug\EOTC.Boston.MedhaneAlem.Common.pdb
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\bin\Debug\EntityFramework.dll
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\bin\Debug\log4net.dll
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\bin\Debug\EntityFramework.xml
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\bin\Debug\log4net.xml
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\obj\Debug\EOTC.Boston.MedhaneAlem.Common.csproj.CoreCompileInputs.cache
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\obj\Debug\EOTC.Boston.MedhaneAlem.Common.dll
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\obj\Debug\EOTC.Boston.MedhaneAlem.Common.pdb
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\obj\Debug\EOTC.Boston.MedhaneAlem.Common.csprojAssemblyReference.cache
+C:\Repo\BMD\Boston\MehaneAlem\EOTC.Boston.MedhaneAlem.Common\obj\Debug\EOTC.Boston.MedhaneAlem.Common.csproj.CopyComplete

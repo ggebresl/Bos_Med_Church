@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myEOTC">
+<!--<html ng-app="myEOTC">-->
+<head>
+    <meta charset="utf-8" />
+    <!--<base href="/bostonmedhanealem.azurewebsites.net/" />-->
+    <!--<base href="/bostonmedhanealem/" />-->
+    <base href="/">
+    <!--<base href="@Url.Content(" ~ />")" />-->  
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E.O.T.C Boston Medhane Alem </title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    
+    <script src="Scripts/jquery-1.10.2.min.js"></script> 
+    <script src="Scripts/script.js"></script>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="Icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="Icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="Icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="Icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="Icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="Icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="Icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="Icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="Icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="Icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="Icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Icons/favicon.ico">
+    <link rel="manifest" href="Icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/Icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">-->
+    <!--for favicon-->
+    <img src="images/KesteDemena.png" align="top" width="100%" height="40" />
+    <marquee loop="infinite" bgcolor="yellow" width=100%>
+        Welcome to Boston Menebere Leule Medhane Alem Ethiopian Orthodox Tewahedo Church!
+    </marquee>
+</head>
+<body ng-controller="mainController">
+    <nav class="navbar navbar-inverse">
+        <!--<div class="container">-->
+        <div class="row">            
+                <div class="col-md-12">
+                    <ul class="nav nav-pills nav-justified">
+                        <li style="color:lightgray" role="presentation"><a href="home">Home</a></li>
+                        <li role="presentation"><a href="services">Services</a></li>
+                        <li role="presentation"><a href="liturgy">Ethiopian liturgy</a></li>
+                        <li role="presentation"><a href="video">Video</a></li>
+                        <li role="presentation"><a href="kinye">Kinye</a></li>
+                        <li role="presentation"><a href="contacts">Contact Us</a></li>
+                        <!--<li role="presentation"><a href="/bostonmedhanealem.org/links">Links</a></li>-->
+                        <li role="presentation"><a href="photos">Photos</a></li>
+                    </ul>
+                </div>
+            </div>
+    </nav>
+    <div class="mainContent">
+        <div ng-view></div>
+         
+        <footer>
+            <nav class="navbar navbar-inverse">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-pills nav-justified">
+                            <li role="presentation"><a href="home">Home</a></li>
+                            <li role="presentation"><a href="services">Services</a></li>
+                            <li role="presentation"><a href="liturgy">Ethiopian liturgy</a></li>
+                            <li role="presentation"><a href="video">Video</a></li>
+                            <li role="presentation"><a href="kinye">Kinye</a></li>
+                            <li role="presentation"><a href="contacts">Contact Us</a></li>
+                            <li role="presentation"><a href="photos">Photos</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <center><small style="color:white">
+                            <p>© 2018 - E.O.T.C Boston Medhane Alem</p>
+                    </small></center>
+            </nav>
+            <br />
+        </footer>
+    </div>
+</body>
+</html>
+
+

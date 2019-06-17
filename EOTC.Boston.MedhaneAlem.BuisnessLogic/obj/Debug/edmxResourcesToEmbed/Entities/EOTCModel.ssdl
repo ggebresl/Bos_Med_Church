@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MedhaneAlemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Street" Type="nvarchar" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" MaxLength="30" />
+    <Property Name="State" Type="nvarchar" MaxLength="30" />
+    <Property Name="Zip" Type="nvarchar" MaxLength="12" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="10" />
+    <Property Name="CellPhone" Type="nvarchar" MaxLength="30" />
+    <Property Name="HomePhone" Type="nvarchar" MaxLength="30" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="MemberCreateDate" Type="date" Nullable="false" />
+    <Property Name="MemberUpdateDate" Type="date" Nullable="false" />
+    <Property Name="MemberStatus" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="PasswordChange">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="PasswordChangeDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentID" Type="int" />
+    <Property Name="CollectedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="PaymentMethod" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReceiptNum" Type="int" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CollectedDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK__PasswordC__UserI__36B12243">
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="0..1" />
+    <End Role="PasswordChange" Type="Self.PasswordChange" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserLogin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PasswordChange">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment__Payment__3F466844">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="PaymentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Member" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Member">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserLogin_members">
+    <End Role="Member" Type="Self.Member" Multiplicity="1" />
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="UserLogin">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="spChangedPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GUID" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spIsPasswordChangeLinkValid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GUID" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="spResetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="MedhaneAlemModelStoreContainer">
+    <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PasswordChange" EntityType="Self.PasswordChange" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__PasswordC__UserI__36B12243" Association="Self.FK__PasswordC__UserI__36B12243">
+      <End Role="UserLogin" EntitySet="UserLogin" />
+      <End Role="PasswordChange" EntitySet="PasswordChange" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment__Payment__3F466844" Association="Self.FK__Payment__Payment__3F466844">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_Role" Association="Self.FK_member_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Member" EntitySet="Member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserLogin_members" Association="Self.FK_UserLogin_members">
+      <End Role="Member" EntitySet="Member" />
+      <End Role="UserLogin" EntitySet="UserLogin" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
